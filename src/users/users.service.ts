@@ -18,6 +18,7 @@ export class UsersService {
     }
 
     async findOne(id: string) {
+        if (!id) return null
         const user = await this.repository.findOne({ where: { id } })
         return user
     }
