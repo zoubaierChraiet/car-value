@@ -41,7 +41,7 @@ export class UsersController {
 
     @Get('/:id')
     findUser(@Param("id") id: string) {
-        return this.usersService.findOne(id)
+        return this.usersService.findOne(+id)
     }
 
     @Get('')
@@ -51,11 +51,11 @@ export class UsersController {
 
     @Patch('/:id')
     updateUser(@Param("id") id: string, @Body() body: Partial<CreateUserDto>) {
-        return this.usersService.update(id, body)
+        return this.usersService.update(+id, body)
     }
 
     @Delete('/:id')
     deleteUser(@Param("id") id: string) {
-        this.usersService.remove(id)
+        this.usersService.remove(+id)
     }
 }

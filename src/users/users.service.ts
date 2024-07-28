@@ -17,13 +17,13 @@ export class UsersService {
         return user
     }
 
-    async findOne(id: string) {
+    async findOne(id: number) {
         if (!id) return null
         const user = await this.repository.findOne({ where: { id } })
         return user
     }
 
-    async update(id: string, attrs: Partial<User>) {
+    async update(id: number, attrs: Partial<User>) {
         const userToUpdate = await this.repository.findOne({ where: { id } })
 
         if (!userToUpdate) {
@@ -33,7 +33,7 @@ export class UsersService {
         return this.repository.save({ ...userToUpdate, ...attrs })
     }
 
-    async remove(id: string) {
+    async remove(id: number) {
         const userToDelete = await this.repository.findOne({ where: { id } })
 
         if (!userToDelete) {

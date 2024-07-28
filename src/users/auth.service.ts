@@ -26,7 +26,6 @@ export class AuthService {
         }
         const existingUser = users[0]
         const isEqual = await compare(password, existingUser.password)
-        console.log(isEqual)
         if (!isEqual) {
             throw new NotAcceptableException("Wrong password!!")
         }
